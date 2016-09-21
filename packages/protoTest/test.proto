@@ -1,0 +1,30 @@
+syntax = "proto3";
+package protoTest;
+
+message  Media {
+  string client = 1;
+  string username = 2;
+  int64 version = 3;
+
+  enum LoanType {
+    TYPE1 = 0;
+    TYPE2 = 1;
+    TYPE3 = 2;
+    TYPE4 = 3;
+  }
+
+  message MediaItem {
+    string guid = 1;
+    string ordernumber = 2;
+    LoanType type = 3;
+    string mimetype = 4;
+    bytes imageBytes = 5;
+  }
+
+  repeated MediaItem mediaItem = 4;
+}
+
+
+message MediaStore {
+  repeated Media media = 1;
+}
